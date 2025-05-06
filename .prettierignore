@@ -1,0 +1,47 @@
+# Ignore build output
+build/
+dist/
+out/
+.next/
+
+# Ignore dependencies
+node_modules/
+
+# Ignore lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Ignore environment and system files
+.env
+.env.* 
+.DS_Store
+
+# Ignore version control folders
+.git/
+
+# Ignore assets
+public/assets/
+static/
+
+# Ignore compiled files
+*.min.js
+*.bundle.js
+*.map
+
+# Ignore API docs or generated docs
+coverage/
+docs/
+
+# Ignore custom scripts or tools
+scripts/
+
+# Ignore log files
+*.log
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Optional: Ignore all HTML if you’re not formatting them
+# *.html
