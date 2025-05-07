@@ -41,13 +41,25 @@ const Home = () => {
           </p>
         </div>
         <div className="flex gap-5 max-md:justify-center">
-          <a href="#" className="hover:opacity-80 transition-opacity">
+          <a
+            href="https://www.linkedin.com/in/owais-ahmad-shah"
+            target="_blank"
+            className="hover:opacity-80 transition-opacity"
+          >
             <FaLinkedin size={40} />
           </a>
-          <a href="#" className="hover:opacity-80 transition-opacity">
+          <a
+            href="https://x.com/owais_ahmadshah"
+            target="_blank"
+            className="hover:opacity-80 transition-opacity"
+          >
             <FaSquareXTwitter size={40} />
           </a>
-          <a href="#" className="hover:opacity-80 transition-opacity">
+          <a
+            href="https://github.com/owaisahmadshah"
+            target="_blank"
+            className="hover:opacity-80 transition-opacity"
+          >
             <FaGithubSquare size={40} />
           </a>
         </div>
