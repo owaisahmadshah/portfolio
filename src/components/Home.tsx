@@ -21,7 +21,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="w-full max-w-7xl mx-auto px-4 py-8 flex items-center justify-between min-h-[90vh] max-md:flex-col-reverse max-md:gap-10">
+    <main className="w-[90%] max-w-7xl mx-auto px-4 py-8 flex items-center justify-between min-h-[90vh] max-md:flex-col-reverse max-md:gap-10">
       {/* Text Content */}
       <div className="flex flex-col gap-10 w-1/2 max-md:w-full max-md:text-center">
         <div className="grid gap-6">
@@ -67,9 +67,9 @@ const Home = () => {
 
       <div className="w-1/2 max-md:w-full flex justify-center items-center">
         <img
-          src="/profile-picture.png"
+          src="/public/portfolio-image.png"
           alt="Owais Ahmad Shah"
-          className="w-[500px] h-auto object-cover rounded-2xl shadow-xl border-2 border-gray-100"
+          className="w-auto h-[500px] object-cover rounded-2xl shadow-xl border-2 border-gray-100"
         />
       </div>
     </main>
