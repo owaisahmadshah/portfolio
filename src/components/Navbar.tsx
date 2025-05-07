@@ -1,9 +1,9 @@
-import { ArrowDownTrayIcon, Bars3Icon } from '@heroicons/react/16/solid';
-
 import { Button } from './ui/button';
 import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { ModeToggle } from './mode-toggle';
 import { cn } from '@/lib/utils';
+import { FaBars } from 'react-icons/fa6';
+import { HiArrowDownTray } from 'react-icons/hi2';
 
 const Navbar = () => {
   const NavbarContent = () => {
@@ -44,12 +44,12 @@ const Navbar = () => {
         <NavbarContent />
       </span>
       <Button className="max-sm:hidden">
-        Resume <ArrowDownTrayIcon />
+        Resume <HiArrowDownTray />
       </Button>
       <div className="sm:hidden">
         <Drawer>
           <DrawerTrigger asChild>
-            <Bars3Icon className="h-[30px]" />
+            <FaBars className="h-[30px]" />
           </DrawerTrigger>
           <DrawerTitle></DrawerTitle>
           <DrawerContent>

@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import Home from '@/components/Home';
 
 function App() {
   return (
@@ -6,7 +7,9 @@ function App() {
       <section className="w-full h-[90px] flex items-center bg-background text-foreground fixed opacity-95">
         <Navbar />
       </section>
-      <section id="#" className="pt-[95px]"></section>
+      <section id="#" className="pt-[95px]">
+        <Home />
+      </section>
       <section id="about" className="pt-[95px]"></section>
       <section id="skills" className="pt-[95px]"></section>
       <section id="projects" className="pt-[95px]"></section>
