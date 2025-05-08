@@ -24,7 +24,7 @@ const About = () => {
           {/* Left Column - Image */}
           <div className="flex justify-center">
             <img
-              src="/public/portfolio-image.png"
+              src="/portfolio-image.png"
               alt="Owais Ahmad Shah"
               className="w-auto h-[400px] rounded-2xl shadow-lg border-2 border-border"
             />
