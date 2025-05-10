@@ -7,11 +7,14 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
+import { FaGithub } from 'react-icons/fa6';
 
 type projectProps = {
   projectTitle: string;
   projectDescription: string[];
   imagesSrc: string[];
+  repo_link: string;
   idx?: number; // Index number of the project
 };
 
@@ -24,6 +27,7 @@ const Projects = () => {
         'I implemented WebSocket connections using Socket.io to provide real-time communication capabilities, secured the platform with Clerk authentication, and created an intuitive UI with React.js and Shadcn components. For data persistence, I used MongoDB, while Cloudinary handles media storage.',
         'This project demonstrates my ability to create secure applications with complexreal-time features while maintaining clean architecture in a monorepo structure usingpnpm workspaces.',
       ],
+      repo_link: 'https://github.com/owaisahmadshah/chat-hive',
       imagesSrc: ['1', '2', '3', '4', '5'],
     },
   ];
@@ -42,6 +46,7 @@ const Projects = () => {
             projectTitle={project.projectTitle}
             projectDescription={project.projectDescription}
             imagesSrc={project.imagesSrc}
+            repo_link={project.repo_link}
             idx={index}
           />
         ))}
@@ -50,7 +55,7 @@ const Projects = () => {
   );
 };
 
-const Project = ({ projectTitle, projectDescription, imagesSrc, idx }: projectProps) => {
+const Project = ({ projectTitle, projectDescription, imagesSrc, repo_link, idx }: projectProps) => {
   return (
     <div
       className={cn(
@@ -95,6 +100,11 @@ const Project = ({ projectTitle, projectDescription, imagesSrc, idx }: projectPr
             <p key={index}>{projectDesc}</p>
           ))}
         </div>
+        <a href={repo_link} target="_blank" rel="noopener noreferrer">
+          <Button className="flex items-center gap-2 mt-2">
+            <FaGithub /> View Code
+          </Button>
+        </a>
       </div>
     </div>
   );
