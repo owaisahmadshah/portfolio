@@ -91,7 +91,7 @@ const LearningPathItem: React.FC<LearningPathItemProps> = ({ title, description,
         <div className="mr-4 mt-1">{icon}</div>
         <div>
           <h4 className="text-lg font-semibold mb-2">{title}</h4>
-          <p className="text-muted-foreground text-sm">{description}</p>
+          <p className="text-muted-foreground leading-relaxed text-sm">{description}</p>
         </div>
       </div>
     </div>

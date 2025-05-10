@@ -33,7 +33,7 @@ const Home = () => {
               <strong>{stack}</strong> Developer
             </h1>
           </div>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground leading-relaxed text-sm">
             I'm a developer focused on building clean, functional web applications. Working with
             MERN stack and Next.js, I strive to create user-friendly solutions that solve practical
             problems. I'm continuously learning and improving my skills to deliver better digital

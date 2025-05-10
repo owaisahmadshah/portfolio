@@ -65,8 +65,8 @@ const Project = ({ projectTitle, projectDescription, imagesSrc, idx }: projectPr
             {imagesSrc.map((_, index) => (
               <CarouselItem key={index}>
                 <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <Card className="text-card bg-card-foreground">
+                    <CardContent className="flex aspect-square items-center justify-center p-6 ">
                       <span className="text-4xl font-semibold">{index + 1}</span>
                     </CardContent>
                   </Card>
@@ -74,8 +74,14 @@ const Project = ({ projectTitle, projectDescription, imagesSrc, idx }: projectPr
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious
+            variant={'default'}
+            className="bg-foreground hover:text-background/90 border-2"
+          />
+          <CarouselNext
+            variant={'default'}
+            className="bg-foreground hover:text-background/90 border-2"
+          />
         </Carousel>
       </div>
       <div className="w-[40%] max-sm:w-[90%]">
@@ -84,7 +90,7 @@ const Project = ({ projectTitle, projectDescription, imagesSrc, idx }: projectPr
             <strong>{projectTitle}</strong>
           </h1>
         </div>
-        <div className="text-muted-foreground grid gap-3 pt-5 text-sm">
+        <div className="text-muted-foreground leading-relaxed grid gap-3 pt-5 text-sm">
           {projectDescription.map((projectDesc, index) => (
             <p key={index}>{projectDesc}</p>
           ))}

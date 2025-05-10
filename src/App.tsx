@@ -3,6 +3,7 @@ import Home from '@/components/Home';
 import Skills from '@/components/Skills';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
 
 function App() {
   return (
@@ -13,16 +14,18 @@ function App() {
       <section id="#" className="pt-[95px]">
         <Home />
       </section>
-      <section id="skills" className="pt-[95px] pb-[95px]">
+      <section id="skills" className="pt-[95px] pb-[95px]  bg-foreground text-background">
         <Skills />
       </section>
-      <section id="about" className="pt-[95px] pb-[95px] bg-foreground text-background">
+      <section id="about" className="pt-[95px] max-sm:pb-[95px]">
         <About />
       </section>
-      <section id="projects" className="pt-[95px]">
+      <section id="projects" className="py-[95px] bg-foreground text-background">
         <Projects />
       </section>
-      {/* <section id="contact-me" className="pt-[95px]"></section> */}
+      <section id="contact-me" className="pt-[95px] pb-[95px]">
+        <Contact />
+      </section>
     </main>
   );
 }
