@@ -4,6 +4,7 @@ import Skills from '@/components/Skills';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 
 function App() {
   return (
@@ -23,9 +24,12 @@ function App() {
       <section id="projects" className="py-[95px] bg-foreground text-background">
         <Projects />
       </section>
-      <section id="contact-me" className="pt-[95px] pb-[95px]">
+      <section id="contact-me" className="pt-[95px] pb-[95px] max-sm:pb-10">
         <Contact />
       </section>
+      <footer className="bg-foreground text-background">
+        <Footer />
+      </footer>
     </main>
   );
 }

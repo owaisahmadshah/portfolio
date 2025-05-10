@@ -1,6 +1,6 @@
 import { Button } from './ui/button';
 import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
-import { ModeToggle } from './mode-toggle';
+// import { ModeToggle } from './mode-toggle';
 import { cn } from '@/lib/utils';
 import { FaBars } from 'react-icons/fa6';
 import { HiArrowDownTray } from 'react-icons/hi2';
@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center w-[90%] mx-auto">
       <div className="flex items-center gap-3">
-        <ModeToggle />
+        {/* <ModeToggle /> */}
         <p className="text-base cursor-pointer transition-all duration-300 ease-in-out hover:scale-105">
           <strong>
             <a href="#">Personal</a>
