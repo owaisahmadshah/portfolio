@@ -1,8 +1,17 @@
 {
   "name": "portfolio",
-  "description": "A personal portfolio website to showcase my projects, skills, and experience as a software developer.",
+  "description": "A modern portfolio website built with React, TypeScript, and TailwindCSS. Features a responsive design, dark/light mode, animated components, and sections for projects, skills, and contact information. Showcases professional experience and technical expertise in web development.",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": {
+    "name": "Owais Ahmad Shah",
+    "url": "https://github.com/owaisahmadshah"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owaisahmadshah/portfolio.git"
+  },
+  "homepage": "https://github.com/owaisahmadshah/portfolio#readme",
   "type": "module",
   "scripts": {
     "dev": "vite",
