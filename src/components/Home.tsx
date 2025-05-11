@@ -69,7 +69,7 @@ const Home = () => {
 
       <div className="w-1/2 max-md:w-full flex justify-center items-center">
         <img
-          src="/portfolio-image.png"
+          src={import.meta.env.BASE_URL + 'portfolio-image.png'}
           alt="Owais Ahmad Shah"
           className="w-auto h-[500px] object-cover rounded-2xl shadow-xl border-2 border-gray-100"
         />

@@ -28,8 +28,19 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # Make sure we have access to the public directory and its contents
+      - name: Check public directory
+        run: |
+          ls -la public || echo "Public directory not found"
+
       - name: Build project
         run: pnpm build
+
+      # Debug the dist output to make sure images are correctly included
+      - name: Debug dist contents
+        run: |
+          ls -la dist
+          find dist -type f -name "*.html" -exec grep -l "img" {} \;
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
