@@ -4,7 +4,7 @@ import { SiExpress, SiMongodb, SiSocketdotio, SiTailwindcss, SiTypescript } from
 
 const Skills = () => {
   const skillsClass =
-    'flex flex-col items-center justify-around border h-40 w-40 border-2 border-foreground rounded-sm';
+    'flex flex-col items-center justify-around border h-40 w-40 max-sm:h-35 max-sm:w-35 border-2 rounded-sm';
   const skillsTextClass = 'text-2xl';
   const skillsIconSize = 70;
   return (
