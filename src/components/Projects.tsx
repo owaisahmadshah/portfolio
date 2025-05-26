@@ -9,6 +9,7 @@ import {
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 import { FaGithub } from 'react-icons/fa6';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 type projectProps = {
   projectTitle: string;
@@ -28,7 +29,16 @@ const Projects = () => {
         'This project demonstrates my ability to create secure applications with complexreal-time features while maintaining clean architecture in a monorepo structure usingpnpm workspaces.',
       ],
       repo_link: 'https://github.com/owaisahmadshah/chat-hive',
-      imagesSrc: ['1', '2', '3', '4', '5'],
+      imagesSrc: [
+        'sign-in.png',
+        'sign-up.png',
+        'verify-otp.png',
+        'reset-verify-otp.png',
+        'unread-messages.png',
+        'messages-typing.png',
+        'messages-options.png',
+        'settings.png',
+      ],
     },
   ];
 
@@ -67,12 +77,28 @@ const Project = ({ projectTitle, projectDescription, imagesSrc, repo_link, idx }
       <div>
         <Carousel className="w-72 max-sm:w-52 block">
           <CarouselContent>
-            {imagesSrc.map((_, index) => (
+            {imagesSrc.map((img, index) => (
               <CarouselItem key={index}>
                 <div className="p-1">
                   <Card className="text-card bg-card-foreground">
-                    <CardContent className="flex aspect-square items-center justify-center p-6 ">
-                      <span className="text-4xl font-semibold">{index + 1}</span>
+                    <CardContent className="flex aspect-square items-center justify-center">
+                      {/* Dialog for enlarged image */}
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <img
+                            src={img}
+                            alt={`Project image ${index + 1}`}
+                            className="cursor-pointer object-cover w-full h-full rounded-lg transition-transform hover:scale-105"
+                          />
+                        </DialogTrigger>
+                        <DialogContent className="p-0 bg-background max-w-4xl max-h-[90vh] flex items-center justify-center">
+                          <img
+                            src={img}
+                            alt={`Project full image ${index + 1}`}
+                            className="max-w-full max-h-[85vh] object-contain rounded-md"
+                          />
+                        </DialogContent>
+                      </Dialog>
                     </CardContent>
                   </Card>
                 </div>
