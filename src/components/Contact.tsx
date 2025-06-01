@@ -55,7 +55,7 @@ const Contact = () => {
       .then(
         () => {
           toast('Message has been sent.');
-          setIsSendMessageError(true);
+          setIsSendMessageError(false);
           form.reset();
         },
         (error) => {
