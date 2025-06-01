@@ -17,7 +17,10 @@ const Home = () => {
       });
     }, 2000);
 
-    return () => clearInterval(interval);
+    return () => {
+      console.log(stackIndex);
+      clearInterval(interval);
+    };
   }, []);
 
   return (
