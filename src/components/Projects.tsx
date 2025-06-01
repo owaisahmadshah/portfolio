@@ -26,7 +26,7 @@ const Projects = () => {
       projectDescription: [
         'Chat Hive is a full-stack real-time messaging platform I built from the ground up using modern web technologies. The application enables users to communicate instantly through text messages and image sharing in a secure environment.',
         'I implemented WebSocket connections using Socket.io to provide real-time communication capabilities, secured the platform with Clerk authentication, and created an intuitive UI with React.js and Shadcn components. For data persistence, I used MongoDB, while Cloudinary handles media storage.',
-        'This project demonstrates my ability to create secure applications with complexreal-time features while maintaining clean architecture in a monorepo structure usingpnpm workspaces.',
+        'This project demonstrates my ability to create secure applications with complex real-time features while maintaining clean architecture in a monorepo structure usingpnpm workspaces.',
       ],
       repo_link: 'https://github.com/owaisahmadshah/chat-hive',
       imagesSrc: [
