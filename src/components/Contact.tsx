@@ -3,11 +3,14 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { FaGithubSquare } from 'react-icons/fa';
 import { FaLinkedin, FaSquareXTwitter } from 'react-icons/fa6';
+import emailjs from '@emailjs/browser';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useState } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -22,6 +25,9 @@ const formSchema = z.object({
 });
 
 const Contact = () => {
+  const [isSendingMessage, setIsSendingMessage] = useState(false);
+  const [isSendMessageError, setIsSendMessageError] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,8 +37,34 @@ const Contact = () => {
     },
   });
 
-  function onSubmit() {
-    form.reset();
+  function onSubmit(data: z.infer<typeof formSchema>) {
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      message: data.message,
+    };
+
+    setIsSendingMessage(true);
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          toast('Message has been sent.');
+          setIsSendMessageError(true);
+          form.reset();
+        },
+        (error) => {
+          toast('Email send failed.');
+          setIsSendMessageError(true);
+          console.error(error);
+        }
+      )
+      .finally(() => setIsSendingMessage(false));
   }
 
   return (
@@ -81,9 +113,7 @@ const Contact = () => {
               )}
             />
             <div className="flex items-center gap-6 max-sm:gap-3">
-              <Button type="submit" disabled>
-                Get in touch
-              </Button>
+              <Button type="submit">{isSendingMessage ? 'Sending...' : 'Get in touch'}</Button>
               <a
                 href="https://www.linkedin.com/in/owais-ahmad-shah"
                 target="_blank"
@@ -125,14 +155,16 @@ const Contact = () => {
             - I'd be happy to hear from you!
           </p>
 
-          <div className="mt-6">
-            <p className="mb-2">
-              <strong>owaisahmadqureshi019@gmail.com</strong>
-            </p>
-            <p className="mb-4">
-              <strong>+92 331 3767001</strong>
-            </p>
-          </div>
+          {isSendMessageError && (
+            <div className="mt-6">
+              <p className="mb-2">
+                <strong>owaisahmadqureshi019@gmail.com</strong>
+              </p>
+              <p className="mb-4">
+                <strong>+92 331 3767001</strong>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </main>
