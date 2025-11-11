@@ -1,3 +1,4 @@
+import { ScrollArea } from '@/components/ui/scroll-area';
 import Navbar from '@/components/Navbar';
 import Home from '@/components/Home';
 import Skills from '@/components/Skills';
@@ -9,27 +10,30 @@ import Footer from '@/components/Footer';
 function App() {
   return (
     <main>
-      <section className="w-full h-[90px] flex items-center bg-background text-foreground fixed opacity-95 z-50">
+      <section className="w-full h-[90px] flex items-center bg-background text-foreground fixed top-0 left-0 right-0 backdrop-blur-sm bg-opacity-95 z-50 border-b border-border/50">
         <Navbar />
       </section>
-      <section id="#" className="pt-[95px]">
-        <Home />
-      </section>
-      <section id="skills" className="pt-[95px] pb-[95px]  bg-foreground text-background">
-        <Skills />
-      </section>
-      <section id="about" className="pt-[95px] max-sm:pb-[95px]">
-        <About />
-      </section>
-      <section id="projects" className="py-[95px] bg-foreground text-background">
-        <Projects />
-      </section>
-      <section id="contact-me" className="pt-[95px] pb-[95px] max-sm:pb-10">
-        <Contact />
-      </section>
-      <footer className="bg-foreground text-background">
-        <Footer />
-      </footer>
+
+      <ScrollArea className="h-screen">
+        <section id="home" className="pt-[95px]">
+          <Home />
+        </section>
+        <section id="skills" className="pt-[95px] pb-[95px] bg-foreground text-background">
+          <Skills />
+        </section>
+        <section id="about" className="pt-[95px] pb-[95px]">
+          <About />
+        </section>
+        <section id="projects" className="py-[95px] bg-foreground text-background">
+          <Projects />
+        </section>
+        <section id="contact-me" className="pt-[95px] pb-[95px]">
+          <Contact />
+        </section>
+        <footer className="bg-foreground text-background">
+          <Footer />
+        </footer>
+      </ScrollArea>
     </main>
   );
 }
