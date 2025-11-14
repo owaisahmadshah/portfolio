@@ -29,7 +29,7 @@ export const Project = ({
   idx = 0,
 }: ProjectProps) => {
   const isReversed = idx % 2 !== 0;
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
 
   const imageAnimation = isReversed ? 'slide-in-from-right-12' : 'slide-in-from-left-12';
   const textAnimation = isReversed ? 'slide-in-from-left-12' : 'slide-in-from-right-12';
@@ -40,8 +40,8 @@ export const Project = ({
         'flex max-md:flex-col max-md:items-center justify-center gap-12 md:gap-16 group',
         isReversed && 'flex-row-reverse'
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      // onMouseEnter={() => setIsHovered(true)}
+      // onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Gallery */}
       <div
@@ -216,7 +216,7 @@ const ProjectImageGallery: React.FC<ProjectImageGalleryProps> = ({ imagesSrc }) 
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Zoom Indicator */}
-              <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+              <div className="absolute top-4 right-4 bg-foreground/80 backdrop-blur-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                 <span className="text-xs font-medium flex items-center gap-1">
                   <HiExternalLink className="w-3 h-3" />
                   Click to expand

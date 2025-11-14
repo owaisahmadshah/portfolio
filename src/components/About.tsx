@@ -14,22 +14,22 @@ interface LearningPathItemProps {
   gradient: string;
 }
 
-interface StatCardProps {
-  value: number;
-  label: string;
-  icon: ReactNode;
-  suffix?: string;
-  index: number;
-  isVisible: boolean;
-}
+// interface StatCardProps {
+//   value: number;
+//   label: string;
+//   icon: ReactNode;
+//   suffix?: string;
+//   index: number;
+//   isVisible: boolean;
+// }
 
 const About = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [animatedStats, setAnimatedStats] = useState({
-    projects: 0,
-    technologies: 0,
-    learningHours: 0,
-  });
+  // const [animatedStats, setAnimatedStats] = useState({
+  //   projects: 0,
+  //   technologies: 0,
+  //   learningHours: 0,
+  // });
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -41,16 +41,16 @@ const About = () => {
           // Animate stats counting up
           const duration = 2000;
           const steps = 60;
-          const increment = (target: number) => target / steps;
+          // const increment = (target: number) => target / steps;
 
           let step = 0;
           const timer = setInterval(() => {
             step++;
-            setAnimatedStats({
-              projects: Math.min(10, Math.floor(increment(10) * step)),
-              technologies: Math.min(9, Math.floor(increment(9) * step)),
-              learningHours: Math.min(500, Math.floor(increment(500) * step)),
-            });
+            // setAnimatedStats({
+            //   projects: Math.min(10, Math.floor(increment(10) * step)),
+            //   technologies: Math.min(9, Math.floor(increment(9) * step)),
+            //   learningHours: Math.min(500, Math.floor(increment(500) * step)),
+            // });
 
             if (step === steps) clearInterval(timer);
           }, duration / steps);
@@ -330,40 +330,40 @@ const About = () => {
   );
 };
 
-const StatCard: React.FC<StatCardProps> = ({
-  value,
-  label,
-  icon,
-  suffix = '',
-  index,
-  isVisible,
-}) => {
-  return (
-    <div
-      className={`relative group transition-all duration-700 ${
-        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-      }`}
-      style={{ animationDelay: `${600 + index * 100}ms` }}
-    >
-      {/* Glow effect */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-70 group-hover:opacity-100" />
+// const StatCard: React.FC<StatCardProps> = ({
+//   value,
+//   label,
+//   icon,
+//   suffix = '',
+//   index,
+//   isVisible,
+// }) => {
+//   return (
+//     <div
+//       className={`relative group transition-all duration-700 ${
+//         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+//       }`}
+//       style={{ animationDelay: `${600 + index * 100}ms` }}
+//     >
+//       {/* Glow effect */}
+//       <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-70 group-hover:opacity-100" />
 
-      {/* Card */}
-      <div className="relative bg-card/50 backdrop-blur-sm border-2 border-border/50 rounded-2xl p-8 hover:border-primary/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-        <div className="flex flex-col items-center text-center space-y-4">
-          <div className="p-4 bg-primary/10 rounded-xl text-primary group-hover:scale-110 transition-transform duration-300">
-            {icon}
-          </div>
-          <div className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            {value}
-            {suffix}
-          </div>
-          <div className="text-sm font-medium text-muted-foreground">{label}</div>
-        </div>
-      </div>
-    </div>
-  );
-};
+//       {/* Card */}
+//       <div className="relative bg-card/50 backdrop-blur-sm border-2 border-border/50 rounded-2xl p-8 hover:border-primary/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+//         <div className="flex flex-col items-center text-center space-y-4">
+//           <div className="p-4 bg-primary/10 rounded-xl text-primary group-hover:scale-110 transition-transform duration-300">
+//             {icon}
+//           </div>
+//           <div className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+//             {value}
+//             {suffix}
+//           </div>
+//           <div className="text-sm font-medium text-muted-foreground">{label}</div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 const LearningPathItem: React.FC<LearningPathItemProps> = ({
   title,

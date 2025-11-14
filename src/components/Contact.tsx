@@ -259,7 +259,7 @@ const Contact = () => {
                               className="relative pl-12 pr-4 py-4 min-h-40 bg-background/80 border-border/50 focus:border-primary focus:bg-background transition-all duration-300 resize-none text-base shadow-sm"
                               {...field}
                               onFocus={() => setFocusedField('message')}
-                              onBlur={() => setFocusedField(null)}
+                              // onBlur={() => setFocusedField(null)}
                             />
                             <div className="absolute left-4 top-4 text-muted-foreground">
                               <span className="text-xl">💬</span>
