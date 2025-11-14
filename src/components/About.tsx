@@ -1,14 +1,26 @@
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { HiOutlineAcademicCap, HiOutlineLightBulb } from 'react-icons/hi';
+import { HiOutlineAcademicCap, HiOutlineLightBulb, HiSparkles } from 'react-icons/hi';
 import { IoCodeSlashOutline } from 'react-icons/io5';
-import { FaRegLightbulb } from 'react-icons/fa';
+import { FaRegLightbulb, FaCode, FaRocket, FaHeart } from 'react-icons/fa';
+import { SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiTypescript } from 'react-icons/si';
 
 interface LearningPathItemProps {
   title: string;
   description: string;
   icon: ReactNode;
   index: number;
+  isVisible: boolean;
+  gradient: string;
+}
+
+interface StatCardProps {
+  value: number;
+  label: string;
+  icon: ReactNode;
+  suffix?: string;
+  index: number;
+  isVisible: boolean;
 }
 
 const About = () => {
@@ -25,10 +37,6 @@ const About = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          const fool: boolean = false;
-          if (fool) {
-            console.log(animatedStats);
-          }
 
           // Animate stats counting up
           const duration = 2000;
@@ -39,8 +47,8 @@ const About = () => {
           const timer = setInterval(() => {
             step++;
             setAnimatedStats({
-              projects: Math.min(5, Math.floor(increment(5) * step)),
-              technologies: Math.min(8, Math.floor(increment(8) * step)),
+              projects: Math.min(10, Math.floor(increment(10) * step)),
+              technologies: Math.min(9, Math.floor(increment(9) * step)),
               learningHours: Math.min(500, Math.floor(increment(500) * step)),
             });
 
@@ -63,140 +71,257 @@ const About = () => {
       ref={containerRef}
       className="w-full max-w-7xl mx-auto px-4 py-16 relative overflow-hidden"
     >
-      {/* Animated Background */}
+      {/* Enhanced Animated Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse delay-2000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/3 rounded-full blur-3xl opacity-50" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: '2s' }}
+        />
+        <div
+          className="absolute top-1/2 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: '1s' }}
+        />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: '3s' }}
+        />
       </div>
 
-      {/* Section Title */}
+      {/* Section Header with Badge */}
       <div
         className={`text-center mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
         }`}
       >
-        <h2 className="text-5xl font-bold inline-block bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
-          About Me
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm mb-4">
+          <HiSparkles className="w-4 h-4 text-primary animate-pulse" />
+          <span className="text-sm font-medium text-primary">Get to Know Me</span>
+        </div>
+
+        <h2 className="text-6xl max-md:text-4xl font-bold mb-4">
+          <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            About Me
+          </span>
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-4 rounded-full" />
+
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          A passionate developer on a journey to create meaningful digital experiences
+        </p>
+
+        {/* <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-6 rounded-full" /> */}
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-20">
         {/* Profile and Journey Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Image with enhanced effects */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column - Enhanced Image */}
           <div
             className={`flex justify-center transition-all duration-1000 delay-200 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
             <div className="relative group">
-              {/* Background glow */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-70 group-hover:opacity-100" />
+              {/* Multi-layer glow effect */}
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 via-primary/20 to-primary/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-60 group-hover:opacity-100 animate-pulse" />
+              <div className="absolute -inset-3 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-xl transition-all duration-500" />
 
-              {/* Main image */}
+              {/* Image container */}
               <div className="relative">
                 <img
                   src={import.meta.env.BASE_URL + 'portfolio-image.png'}
                   alt="Owais Ahmad Shah"
-                  className="w-auto h-[450px] rounded-2xl shadow-2xl border-2 border-border/50 transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-3xl group-hover:border-primary/30"
+                  className="relative w-auto h-[450px] max-md:h-[350px] rounded-2xl shadow-2xl border-2 border-border/50 transition-all duration-700 group-hover:scale-[1.03] group-hover:shadow-3xl group-hover:border-primary/40"
                 />
 
-                {/* Floating elements */}
-                <div className="absolute -top-3 -right-3 bg-background/80 backdrop-blur-md border border-primary/30 rounded-lg px-3 py-2 shadow-lg animate-fade-in-up delay-1000">
-                  <div className="text-xs font-semibold text-primary">🚀 Passionate</div>
+                {/* Overlay gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+
+                {/* Floating personality badges */}
+                <div
+                  className="absolute -top-4 -right-4 bg-background backdrop-blur-md border-2 border-primary/30 rounded-xl px-4 py-2.5 shadow-xl animate-in fade-in zoom-in-95 duration-1000"
+                  style={{ animationDelay: '1000ms' }}
+                >
+                  <div className="flex items-center gap-2">
+                    <FaRocket className="text-primary w-4 h-4" />
+                    <span className="text-sm font-bold text-primary">Passionate</span>
+                  </div>
                 </div>
-                <div className="absolute -bottom-3 -left-3 bg-background/80 backdrop-blur-md border border-primary/30 rounded-lg px-3 py-2 shadow-lg animate-fade-in-up delay-1200">
-                  <div className="text-xs font-semibold text-primary">💡 Curious</div>
+
+                <div
+                  className="absolute -bottom-4 -left-4 bg-background backdrop-blur-md border-2 border-primary/30 rounded-xl px-4 py-2.5 shadow-xl animate-in fade-in zoom-in-95 duration-1000"
+                  style={{ animationDelay: '1200ms' }}
+                >
+                  <div className="flex items-center gap-2">
+                    <FaHeart className="text-primary w-4 h-4" />
+                    <span className="text-sm font-bold text-primary">Curious</span>
+                  </div>
+                </div>
+
+                <div
+                  className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background backdrop-blur-md border-2 border-primary/30 rounded-xl px-4 py-2.5 shadow-xl animate-in fade-in slide-in-from-right-4 duration-1000"
+                  style={{ animationDelay: '1400ms' }}
+                >
+                  <div className="flex items-center gap-2">
+                    <FaCode className="text-primary w-4 h-4" />
+                    <span className="text-sm font-bold text-primary">Creative</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Journey */}
+          {/* Right Column - Enhanced Journey */}
           <div
-            className={`space-y-6 transition-all duration-1000 delay-300 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            className={`space-y-8 transition-all duration-1000 delay-300 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
           >
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              My Journey
-            </h3>
+            <div className="space-y-4">
+              <h3 className="text-4xl max-md:text-3xl font-bold bg-gradient-to-r from-foreground via-primary/80 to-foreground bg-clip-text text-transparent">
+                My Journey
+              </h3>
+              <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full" />
+            </div>
 
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-lg">
                 I'm a passionate{' '}
-                <span className="text-foreground font-semibold">software engineering student</span>{' '}
-                with a growing interest in web development, particularly the MERN stack and Next.js.
-                My journey in programming began recently, but I've quickly discovered my enthusiasm
-                for creating digital solutions.
+                <span className="text-foreground font-semibold bg-primary/10 px-2 py-1 rounded">
+                  software engineering student
+                </span>{' '}
+                with a growing fascination for web development. My journey in the MERN stack and
+                Next.js has been both challenging and incredibly rewarding.
               </p>
 
-              <p>
-                I'm fascinated by how{' '}
+              <p className="text-base">
+                What excites me most is how{' '}
                 <span className="text-foreground font-semibold">
-                  code can transform ideas into functional applications
+                  code transforms ideas into living, breathing applications
                 </span>
-                . I recently built my first chat application, which was a simple project but an
-                important milestone in my learning process.
+                . Every project I build, like my first chat application, teaches me something new
+                and fuels my passion for creating meaningful digital experiences.
               </p>
 
-              <p>
-                Beyond web development, I'm very interested in exploring{' '}
-                <span className="text-foreground font-semibold">DevOps practices</span> to
-                understand how modern applications are deployed and scaled. I'm committed to
-                continuous learning and excited about future opportunities.
+              <p className="text-base">
+                Beyond web development, I'm exploring{' '}
+                <span className="text-foreground font-semibold">DevOps practices</span> and modern
+                deployment strategies. I believe in continuous learning and am always seeking
+                opportunities to grow, collaborate, and contribute to innovative projects.
               </p>
+            </div>
+
+            {/* Tech stack I'm working with */}
+            <div className="pt-6 border-t border-border/50">
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+                Technologies I Work With
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { icon: SiReact, color: '#61DAFB', name: 'React' },
+                  { icon: SiNextdotjs, color: '#FFFFFF', name: 'Next.js' },
+                  { icon: SiNodedotjs, color: '#339933', name: 'Node.js' },
+                  { icon: SiMongodb, color: '#47A248', name: 'MongoDB' },
+                  { icon: SiTypescript, color: '#3178C6', name: 'TypeScript' },
+                ].map((tech, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 px-3 py-2 bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg hover:border-primary/40 hover:bg-card/80 transition-all duration-300 hover:scale-105 group/tech"
+                  >
+                    <tech.icon
+                      className="w-5 h-5 transition-transform duration-300 group-hover/tech:scale-110"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-sm font-medium">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Learning Path Section */}
-        <div
-          className={`mt-8 transition-all duration-1000 delay-400 ${
+        {/* Stats Section */}
+        {/* <div
+          className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+          <StatCard
+            value={animatedStats.projects}
+            label="Projects Completed"
+            icon={<FaCode className="w-6 h-6" />}
+            suffix="+"
+            index={0}
+            isVisible={isVisible}
+          />
+          <StatCard
+            value={animatedStats.technologies}
+            label="Technologies Mastered"
+            icon={<FaRocket className="w-6 h-6" />}
+            suffix="+"
+            index={1}
+            isVisible={isVisible}
+          />
+          <StatCard
+            value={animatedStats.learningHours}
+            label="Hours of Learning"
+            icon={<FaHeart className="w-6 h-6" />}
+            suffix="+"
+            index={2}
+            isVisible={isVisible}
+          />
+        </div> */}
+
+        {/* Learning Path Section */}
+        <div
+          className={`transition-all duration-1000 delay-600 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="text-center mb-12 space-y-4">
+            <h3 className="text-3xl max-md:text-3xl font-bold bg-gradient-to-r from-foreground via-primary/80 to-foreground bg-clip-text text-transparent">
               My Learning Path
             </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              My journey through software development has been exciting and rewarding. Here's a
-              glimpse into my current focus and future aspirations.
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Every step of my journey has shaped who I am as a developer. Here's what drives my
+              passion.
             </p>
+            {/* <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full" /> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <LearningPathItem
               title="Software Engineering Foundations"
-              description="Exploring the basics of software engineering while gradually working my way through data structures and algorithms. I'm taking it step by step to build a foundation I can grow from."
-              icon={<HiOutlineAcademicCap className="text-primary" size={24} />}
+              description="Building a solid foundation in computer science fundamentals while exploring data structures and algorithms. Taking deliberate steps to understand the 'why' behind every concept."
+              icon={<HiOutlineAcademicCap size={28} />}
               index={0}
               isVisible={isVisible}
+              gradient="from-blue-500 to-cyan-500"
             />
             <LearningPathItem
-              title="Web Development Skills"
-              description="Learning modern web technologies including HTML, CSS, JavaScript, React.js, Next.js, Node.js, Express.js and MongoDB to create full-stack applications."
-              icon={<IoCodeSlashOutline className="text-primary" size={24} />}
+              title="Modern Web Development"
+              description="Mastering the full spectrum of web technologies: React.js for dynamic UIs, Next.js for performance, Node.js & Express for robust backends, and MongoDB for data persistence."
+              icon={<IoCodeSlashOutline size={28} />}
               index={1}
               isVisible={isVisible}
+              gradient="from-purple-500 to-pink-500"
             />
             <LearningPathItem
-              title="First Project: Chat Application"
-              description="Successfully built a simple chat application as my first hands-on project, implementing basic user authentication and real-time messaging functionality."
-              icon={<HiOutlineLightBulb className="text-primary" size={24} />}
+              title="First Major Project: Chat Hive"
+              description="Built a feature-rich real-time chat application with WebSocket communication, user authentication, and image sharing. This project taught me the importance of architecture and user experience."
+              icon={<HiOutlineLightBulb size={28} />}
               index={2}
               isVisible={isVisible}
+              gradient="from-orange-500 to-red-500"
             />
             <LearningPathItem
-              title="Future Goals"
-              description="Aiming to master responsive web design, state management, API integration, and deployment processes. Excited to contribute to open-source projects and build a diverse portfolio."
-              icon={<FaRegLightbulb className="text-primary" size={24} />}
+              title="Future Aspirations"
+              description="Expanding into advanced state management, microservices architecture, and DevOps. Eager to contribute to open-source, mentor others, and build products that make a real difference."
+              icon={<FaRegLightbulb size={28} />}
               index={3}
               isVisible={isVisible}
+              gradient="from-green-500 to-emerald-500"
             />
           </div>
         </div>
@@ -205,32 +330,81 @@ const About = () => {
   );
 };
 
-const LearningPathItem: React.FC<LearningPathItemProps & { isVisible: boolean }> = ({
-  title,
-  description,
+const StatCard: React.FC<StatCardProps> = ({
+  value,
+  label,
   icon,
+  suffix = '',
   index,
   isVisible,
 }) => {
   return (
     <div
-      className={`
-      bg-card/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border/50 
-      hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer
-      ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0 translate-y-8'}
-    `}
-      style={{ animationDelay: `${700 + index * 100}ms` }}
+      className={`relative group transition-all duration-700 ${
+        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+      }`}
+      style={{ animationDelay: `${600 + index * 100}ms` }}
     >
-      <div className="flex items-start">
-        <div className="mr-4 p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300">
-          {icon}
+      {/* Glow effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-70 group-hover:opacity-100" />
+
+      {/* Card */}
+      <div className="relative bg-card/50 backdrop-blur-sm border-2 border-border/50 rounded-2xl p-8 hover:border-primary/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+        <div className="flex flex-col items-center text-center space-y-4">
+          <div className="p-4 bg-primary/10 rounded-xl text-primary group-hover:scale-110 transition-transform duration-300">
+            {icon}
+          </div>
+          <div className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            {value}
+            {suffix}
+          </div>
+          <div className="text-sm font-medium text-muted-foreground">{label}</div>
         </div>
-        <div>
-          <h4 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-            {title}
-          </h4>
-          <p className="text-muted-foreground leading-relaxed text-sm">{description}</p>
+      </div>
+    </div>
+  );
+};
+
+const LearningPathItem: React.FC<LearningPathItemProps> = ({
+  title,
+  description,
+  icon,
+  index,
+  isVisible,
+  gradient,
+}) => {
+  return (
+    <div
+      className={`relative group transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+      style={{ animationDelay: `${800 + index * 150}ms` }}
+    >
+      {/* Glow effect */}
+      <div
+        className={`absolute -inset-1 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-xl transition-all duration-500`}
+      />
+
+      {/* Card */}
+      <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-border/50 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full">
+        <div className="flex items-start gap-4">
+          <div
+            className={`flex-shrink-0 p-4 bg-gradient-to-br ${gradient} rounded-xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
+          >
+            <div className="text-white">{icon}</div>
+          </div>
+          <div className="flex-1 space-y-3">
+            <h4 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+              {title}
+            </h4>
+            <p className="text-muted-foreground leading-relaxed text-sm">{description}</p>
+          </div>
         </div>
+
+        {/* Bottom accent line */}
+        <div
+          className={`mt-6 h-1 w-0 bg-gradient-to-r ${gradient} rounded-full group-hover:w-full transition-all duration-500`}
+        />
       </div>
     </div>
   );
